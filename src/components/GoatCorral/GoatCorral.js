@@ -1,7 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Goat from '../Goat/Goat';
+import './GoatCorral.scss';
+
+import goatShape from '../../helpers/propz/goatShape';
 
 class GoatCorral extends React.Component {
+  static propTypes = {
+    goats: PropTypes.arrayOf(goatShape.goatShape),
+  }
+
   render() {
     const { goats } = this.props;
     const goatCards = goats.map((goat) => (
@@ -9,8 +17,7 @@ class GoatCorral extends React.Component {
     ));
 
     return (
-      <div>
-        <h2>Get Your Goat</h2>
+      <div className="corrall">
         { goatCards }
       </div>
     );
