@@ -5,7 +5,7 @@ const goats = [
     age: 44,
     description: 'Peyton Williams Manning is an American former professional football quarterback.',
     imgUrl: 'https://i.imgur.com/x5QSEHN.jpg',
-    isBusy: true,
+    isTaken: true,
   },
   {
     id: 'goat2',
@@ -13,7 +13,7 @@ const goats = [
     age: 65,
     description: 'Reginald White was aprofessional football player. He played college football for the University of Tennessee.',
     imgUrl: 'https://i.imgur.com/nITHX8n.jpg',
-    isBusy: true,
+    isTaken: true,
   },
   {
     id: 'goat3',
@@ -21,26 +21,42 @@ const goats = [
     age: 25,
     description: 'Alvin Kamara is a running back for the New Orleans Saints. He played college football at the University of Tennessee',
     imgUrl: 'https://i.imgur.com/7beLCQ2.jpg',
-    isBusy: false,
+    isTaken: false,
   },
   {
     id: 'goat4',
-    name: 'Butter',
-    age: 1,
-    description: 'RAWRRRR',
-    imgUrl: 'https://i.ytimg.com/vi/cEJy2q27hVk/maxresdefault.jpg',
-    isBusy: false,
+    name: 'Eric Berry',
+    age: 31,
+    description: 'He played college football at Tennessee, where he was a two-time All-American and recognized as the best defensive back in the country. ',
+    imgUrl: 'https://i.imgur.com/0wDS2RX.jpg',
+    isTaken: false,
   },
   {
     id: 'goat5',
-    name: 'Ramsey',
-    age: 0.5,
-    description: 'Nope',
-    imgUrl: 'https://www.psephizo.com/wp-content/uploads/2018/09/1438297793139.jpeg',
-    isBusy: false,
+    name: 'Al Wilson',
+    age: 43,
+    description: 'Al Wilson is a former football player. He played college football for the University of Tennessee, and was recognized as an All-American.',
+    imgUrl: 'https://i.imgur.com/AGxDzUb.jpg',
+    isTaken: false,
   },
 ];
 
 const getGoats = () => goats;
 
-export default { getGoats };
+const takeGoat = (goatId) => {
+  goats.forEach((response) => {
+    if (response.id === goatId) {
+      response.isTaken = true;
+    }
+  });
+};
+
+const freeGoat = (goatId) => {
+  goats.forEach((response) => {
+    if (response.id === goatId) {
+      response.isTaken = false;
+    }
+  });
+};
+
+export default { getGoats, takeGoat, freeGoat };
